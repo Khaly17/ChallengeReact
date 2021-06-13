@@ -13,9 +13,9 @@ class App extends Component {
         ]
     }
 
-    buttonClickedHandler = () => {
+    buttonClickedHandler = nouveauNom => {
         const newStat = [...this.state.eleves];
-        newStat[0].nom = "Khaly DIENG"
+        newStat[0].nom = nouveauNom
         this.setState({
             ...this.state,
             eleves: newStat
@@ -28,11 +28,12 @@ class App extends Component {
 
                 <h1>Bienvenue dans la classe Terre !!</h1>
 
-                <button onClick={this.buttonClickedHandler}>Envoyer</button>
+                <button onClick={this.buttonClickedHandler.bind(this, "Moi")}>Envoyer</button>
 
                 <Eleve
                     nom={this.state.eleves[0].nom}
                     moyenne={this.state.eleves[0].moyenne}
+                    clic={() => this.buttonClickedHandler("Khaly")}
                 >
                     "Allez plus loin"
                 </Eleve>
@@ -40,6 +41,7 @@ class App extends Component {
                 <Eleve
                     nom={this.state.eleves[1].nom}
                     moyenne={this.state.eleves[1].moyenne}
+                    clic={() => this.buttonClickedHandler("Omar")}
                 >
                     "La connaissance partagee "
                 </Eleve>
