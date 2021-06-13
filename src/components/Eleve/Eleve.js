@@ -2,6 +2,34 @@ import React, { Component } from 'react';
 import './Eleve.css';
 
 class Eleve extends Component {
+    constructor(props) {
+        super(props)
+        console.log('[Eleve.js] Constructor');
+    }
+
+    //Monte
+    componentDidMount() {
+        console.log('[Eleve.js] componentDidMount')
+    }
+
+    //Modification
+    componentDidUpdate() {
+        console.log('[Eleve.js] componentDidUpdate')
+    }
+
+    //Mise a jour
+    shouldComponentUpdate(nextProps, nextState) {
+        console.log('[Eleve.js] shouldComponentUpdate')
+        if (nextProps.nom != this.props.nom) {
+            return true;
+        }
+        return false;
+    }
+    //Demonte
+    componentWillUnmount() {
+        console.log('[Eleve.js] componentWillMount')
+    }
+
     render() {
         return (
             <div className="eleve">
